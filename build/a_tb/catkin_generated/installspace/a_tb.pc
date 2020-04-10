@@ -1,0 +1,8 @@
+prefix=/home/kreta/catkin_ws/install
+
+Name: a_tb
+Description: Description of a_tb
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

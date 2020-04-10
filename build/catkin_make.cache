@@ -1,0 +1,2 @@
+a_tb
+-DCATKIN_DEVEL_PREFIX=/home/kreta/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kreta/catkin_ws/install -DCATKIN_WHITELIST_PACKAGES=a_tb -G Unix Makefiles
