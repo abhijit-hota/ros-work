@@ -854,6 +854,19 @@ nav_msgs_generate_messages_eus/fast:
 	$(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
 .PHONY : nav_msgs_generate_messages_eus/fast
 
+#=============================================================================
+# Target rules for targets named initialpose_pub
+
+# Build rule for target.
+initialpose_pub: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 initialpose_pub
+.PHONY : initialpose_pub
+
+# fast build rule for target.
+initialpose_pub/fast:
+	$(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/build
+.PHONY : initialpose_pub/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -920,6 +933,7 @@ help:
 	@echo "... a_tb_generate_messages_nodejs"
 	@echo "... goToPoint"
 	@echo "... nav_msgs_generate_messages_eus"
+	@echo "... initialpose_pub"
 .PHONY : help
 
 

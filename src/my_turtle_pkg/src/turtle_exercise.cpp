@@ -10,7 +10,7 @@ using namespace std;
 
 ros::Publisher velocity_publisher;
 ros::Subscriber pose_subscriber;
-turtlesim::Pose turtlesim_pose;
+nav_msgs::Odometry turtlesim_pose;
 
 const double PI = 3.14159265359;
 
@@ -92,19 +92,19 @@ double setDesiredOrientation(double desired_angle_radians)
     rotate(abs(relative_angle_radians), abs(relative_angle_radians), clockwise);
 }
 
-void poseCallback(const turtlesim::Pose::ConstPtr &pose_message)
+void poseCallback(const nav_msgs::Odometry::ConstPtr &pose_message)
 {
-    turtlesim_pose.x = pose_message->x;
-    turtlesim_pose.y = pose_message->y;
+    target_pose.pose.pose.position.x = pose_message->pose.pose.position.x;
+    target_pose.pose.pose.position.y = pose_message->pose.pose.position.y;
     turtlesim_pose.theta = pose_message->theta;
 }
-void desCallback(const turtlesim::Pose::ConstPtr &pose_message)
-{
-    target_pose.x = pose_message->x;
-    target_pose.y = pose_message->y;
-}
+// void desCallback(const nav_msgs::Odometry::ConstPtr &pose_message)
+// {
+//     target_pose.pose.pose.position.x = pose_message->pose.pose.position.x;
+//     target_pose.pose.pose.position.y = pose_message->pose.pose.position.y;
+// }
 
-void moveGoal(turtlesim::Pose goal_pose, double distance_tolerance)
+void moveGoal(nav_msgs::Odometry goal_pose, double distance_tolerance)
 {
 
     geometry_msgs::Twist vel_msg;
@@ -154,8 +154,8 @@ int main(int argc, char **argv)
 
     ROS_INFO("\n\n\n ********START TESTING*********\n");
     
-    turtlesim::Pose goal_pose;
-    cin >> goal_pose.x >> goal_pose.y;
+    nav_msgs::Odometry goal_pose;
+    cin >> goal_pose.pose.pose.position.x >> goal_pose.pose.pose.position.y;
     moveGoal(goal_pose, 0.01);
 
     ros::spin();

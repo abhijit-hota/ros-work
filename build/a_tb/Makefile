@@ -825,6 +825,21 @@ nav_msgs_generate_messages_eus/fast:
 	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
 .PHONY : nav_msgs_generate_messages_eus/fast
 
+# Convenience name for target.
+a_tb/CMakeFiles/initialpose_pub.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/initialpose_pub.dir/rule
+.PHONY : a_tb/CMakeFiles/initialpose_pub.dir/rule
+
+# Convenience name for target.
+initialpose_pub: a_tb/CMakeFiles/initialpose_pub.dir/rule
+
+.PHONY : initialpose_pub
+
+# fast build rule for target.
+initialpose_pub/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/build
+.PHONY : initialpose_pub/fast
+
 src/go.o: src/go.cpp.o
 
 .PHONY : src/go.o
@@ -879,6 +894,33 @@ src/goToPoint.cpp.s:
 	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/goToPoint.dir/build.make a_tb/CMakeFiles/goToPoint.dir/src/goToPoint.cpp.s
 .PHONY : src/goToPoint.cpp.s
 
+src/initialpose_pub.o: src/initialpose_pub.cpp.o
+
+.PHONY : src/initialpose_pub.o
+
+# target to build an object file
+src/initialpose_pub.cpp.o:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/src/initialpose_pub.cpp.o
+.PHONY : src/initialpose_pub.cpp.o
+
+src/initialpose_pub.i: src/initialpose_pub.cpp.i
+
+.PHONY : src/initialpose_pub.i
+
+# target to preprocess a source file
+src/initialpose_pub.cpp.i:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/src/initialpose_pub.cpp.i
+.PHONY : src/initialpose_pub.cpp.i
+
+src/initialpose_pub.s: src/initialpose_pub.cpp.s
+
+.PHONY : src/initialpose_pub.s
+
+# target to generate assembly for a file
+src/initialpose_pub.cpp.s:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/src/initialpose_pub.cpp.s
+.PHONY : src/initialpose_pub.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -887,8 +929,8 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... _catkin_empty_exported_target"
 	@echo "... install/local"
+	@echo "... _catkin_empty_exported_target"
 	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... actionlib_msgs_generate_messages_lisp"
@@ -936,12 +978,16 @@ help:
 	@echo "... goToPoint"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... install/strip"
+	@echo "... initialpose_pub"
 	@echo "... src/go.o"
 	@echo "... src/go.i"
 	@echo "... src/go.s"
 	@echo "... src/goToPoint.o"
 	@echo "... src/goToPoint.i"
 	@echo "... src/goToPoint.s"
+	@echo "... src/initialpose_pub.o"
+	@echo "... src/initialpose_pub.i"
+	@echo "... src/initialpose_pub.s"
 .PHONY : help
 
 

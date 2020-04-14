@@ -393,6 +393,7 @@ clean: gtest/gtest/CMakeFiles/gtest_main.dir/clean
 a_tb/all: a_tb/CMakeFiles/a_tb_generate_messages.dir/all
 a_tb/all: a_tb/CMakeFiles/go.dir/all
 a_tb/all: a_tb/CMakeFiles/goToPoint.dir/all
+a_tb/all: a_tb/CMakeFiles/initialpose_pub.dir/all
 
 .PHONY : a_tb/all
 
@@ -441,6 +442,7 @@ a_tb/clean: a_tb/CMakeFiles/go.dir/clean
 a_tb/clean: a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/clean
 a_tb/clean: a_tb/CMakeFiles/goToPoint.dir/clean
 a_tb/clean: a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
+a_tb/clean: a_tb/CMakeFiles/initialpose_pub.dir/clean
 
 .PHONY : a_tb/clean
 
@@ -1873,6 +1875,43 @@ a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean:
 
 # clean rule for target.
 clean: a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target a_tb/CMakeFiles/initialpose_pub.dir
+
+# All Build rule for target.
+a_tb/CMakeFiles/initialpose_pub.dir/all: a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/all
+	$(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/depend
+	$(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kreta/catkin_ws/build/CMakeFiles --progress-num=17,18 "Built target initialpose_pub"
+.PHONY : a_tb/CMakeFiles/initialpose_pub.dir/all
+
+# Include target in all.
+all: a_tb/CMakeFiles/initialpose_pub.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+a_tb/CMakeFiles/initialpose_pub.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kreta/catkin_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/initialpose_pub.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kreta/catkin_ws/build/CMakeFiles 0
+.PHONY : a_tb/CMakeFiles/initialpose_pub.dir/rule
+
+# Convenience name for target.
+initialpose_pub: a_tb/CMakeFiles/initialpose_pub.dir/rule
+
+.PHONY : initialpose_pub
+
+# clean rule for target.
+a_tb/CMakeFiles/initialpose_pub.dir/clean:
+	$(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/clean
+.PHONY : a_tb/CMakeFiles/initialpose_pub.dir/clean
+
+# clean rule for target.
+clean: a_tb/CMakeFiles/initialpose_pub.dir/clean
 
 .PHONY : clean
 

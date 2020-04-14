@@ -43,10 +43,8 @@ int main(int argc, char** argv)
 	ros::Subscriber CurrPos_sub = nh.subscribe("/turtle1/pose", 10, callbackCurr);
 	ros::Subscriber DesPos_sub = nh.subscribe("/abhiyaan/pose", 10 , callbackDes);
 
-	ros::Publisher move_pub = nh.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 100);
+	// ros::Publisher move_pub = nh.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 100);
 
-	Curr
-	while()
 	ros::spinOnce();
 	ros::Rate loop_rate(1);
 
