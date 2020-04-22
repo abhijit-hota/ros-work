@@ -60,7 +60,7 @@ class GotoPoint():
 
         (position, rotation) = self.get_odom()
         last_rotation = 0
-        linear_speed = 1
+        linear_speed = 10
         angular_speed = 1
         (goal_x, goal_y, goal_z) = self.getkey()
         if goal_z > 180 or goal_z < -180:
@@ -155,4 +155,3 @@ if __name__ == '__main__':
 
     except:
         rospy.loginfo("shutdown program.")
-

@@ -56,6 +56,16 @@ CMAKE_BINARY_DIR = /home/kreta/catkin_ws/build
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +87,28 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -100,38 +132,6 @@ install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
 	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
-
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,154 +166,34 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-a_tb/CMakeFiles/_catkin_empty_exported_target.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/_catkin_empty_exported_target.dir/rule
-.PHONY : a_tb/CMakeFiles/_catkin_empty_exported_target.dir/rule
+a_tb/CMakeFiles/initialpose_pub.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/initialpose_pub.dir/rule
+.PHONY : a_tb/CMakeFiles/initialpose_pub.dir/rule
 
 # Convenience name for target.
-_catkin_empty_exported_target: a_tb/CMakeFiles/_catkin_empty_exported_target.dir/rule
+initialpose_pub: a_tb/CMakeFiles/initialpose_pub.dir/rule
 
-.PHONY : _catkin_empty_exported_target
+.PHONY : initialpose_pub
 
 # fast build rule for target.
-_catkin_empty_exported_target/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/_catkin_empty_exported_target.dir/build.make a_tb/CMakeFiles/_catkin_empty_exported_target.dir/build
-.PHONY : _catkin_empty_exported_target/fast
+initialpose_pub/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/build
+.PHONY : initialpose_pub/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
-.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+a_tb/CMakeFiles/goToPoint.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/goToPoint.dir/rule
+.PHONY : a_tb/CMakeFiles/goToPoint.dir/rule
 
 # Convenience name for target.
-nav_msgs_generate_messages_cpp: a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+goToPoint: a_tb/CMakeFiles/goToPoint.dir/rule
 
-.PHONY : nav_msgs_generate_messages_cpp
+.PHONY : goToPoint
 
 # fast build rule for target.
-nav_msgs_generate_messages_cpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
-.PHONY : nav_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-.PHONY : a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-actionlib_msgs_generate_messages_lisp: a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : actionlib_msgs_generate_messages_lisp
-
-# fast build rule for target.
-actionlib_msgs_generate_messages_lisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
-.PHONY : actionlib_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-.PHONY : a_tb/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_lisp: a_tb/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : std_msgs_generate_messages_lisp
-
-# fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_lisp: a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_lisp: a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : nav_msgs_generate_messages_lisp
-
-# fast build rule for target.
-nav_msgs_generate_messages_lisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
-.PHONY : nav_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_cpp: a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-
-.PHONY : roscpp_generate_messages_cpp
-
-# fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_eus: a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_eus
-
-# fast build rule for target.
-geometry_msgs_generate_messages_eus/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
-.PHONY : geometry_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_nodejs: a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : nav_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-nav_msgs_generate_messages_nodejs/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
-.PHONY : nav_msgs_generate_messages_nodejs/fast
+goToPoint/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/goToPoint.dir/build.make a_tb/CMakeFiles/goToPoint.dir/build
+.PHONY : goToPoint/fast
 
 # Convenience name for target.
 a_tb/CMakeFiles/a_tb_genpy.dir/rule:
@@ -331,199 +211,109 @@ a_tb_genpy/fast:
 .PHONY : a_tb_genpy/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
-.PHONY : a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_eus: a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+a_tb_generate_messages_nodejs: a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule
 
-.PHONY : actionlib_msgs_generate_messages_eus
+.PHONY : a_tb_generate_messages_nodejs
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_eus/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
-.PHONY : actionlib_msgs_generate_messages_eus/fast
+a_tb_generate_messages_nodejs/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/build
+.PHONY : a_tb_generate_messages_nodejs/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
-.PHONY : a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+a_tb/CMakeFiles/go.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/go.dir/rule
+.PHONY : a_tb/CMakeFiles/go.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_cpp: a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+go: a_tb/CMakeFiles/go.dir/rule
 
-.PHONY : actionlib_msgs_generate_messages_cpp
+.PHONY : go
 
 # fast build rule for target.
-actionlib_msgs_generate_messages_cpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
-.PHONY : actionlib_msgs_generate_messages_cpp/fast
+go/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/go.dir/build.make a_tb/CMakeFiles/go.dir/build
+.PHONY : go/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
-.PHONY : a_tb/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+a_tb/CMakeFiles/a_tb_genlisp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_genlisp.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_genlisp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_cpp: a_tb/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+a_tb_genlisp: a_tb/CMakeFiles/a_tb_genlisp.dir/rule
 
-.PHONY : std_msgs_generate_messages_cpp
+.PHONY : a_tb_genlisp
 
 # fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
+a_tb_genlisp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_genlisp.dir/build.make a_tb/CMakeFiles/a_tb_genlisp.dir/build
+.PHONY : a_tb_genlisp/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+a_tb_generate_messages_lisp: a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_cpp
+.PHONY : a_tb_generate_messages_lisp
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+a_tb_generate_messages_lisp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/build
+.PHONY : a_tb_generate_messages_lisp/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
-.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_cpp: a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+a_tb_generate_messages_eus: a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule
 
-.PHONY : geometry_msgs_generate_messages_cpp
+.PHONY : a_tb_generate_messages_eus
 
 # fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
+a_tb_generate_messages_eus/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/build
+.PHONY : a_tb_generate_messages_eus/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule
+a_tb/CMakeFiles/a_tb_generate_messages.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_generate_messages.dir/rule
 
 # Convenience name for target.
-a_tb_generate_messages_py: a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule
+a_tb_generate_messages: a_tb/CMakeFiles/a_tb_generate_messages.dir/rule
 
-.PHONY : a_tb_generate_messages_py
+.PHONY : a_tb_generate_messages
 
 # fast build rule for target.
-a_tb_generate_messages_py/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_py.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_py.dir/build
-.PHONY : a_tb_generate_messages_py/fast
+a_tb_generate_messages/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages.dir/build
+.PHONY : a_tb_generate_messages/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/std_msgs_generate_messages_eus.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
-.PHONY : a_tb/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_eus: a_tb/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+geometry_msgs_generate_messages_py: a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
-.PHONY : std_msgs_generate_messages_eus
+.PHONY : geometry_msgs_generate_messages_py
 
 # fast build rule for target.
-std_msgs_generate_messages_eus/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/std_msgs_generate_messages_eus.dir/build
-.PHONY : std_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-roscpp_generate_messages_lisp: a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-
-.PHONY : roscpp_generate_messages_lisp
-
-# fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-a_tb_generate_messages_cpp: a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule
-
-.PHONY : a_tb_generate_messages_cpp
-
-# fast build rule for target.
-a_tb_generate_messages_cpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/build
-.PHONY : a_tb_generate_messages_cpp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_py: a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
-
-.PHONY : nav_msgs_generate_messages_py
-
-# fast build rule for target.
-nav_msgs_generate_messages_py/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/build
-.PHONY : nav_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/std_msgs_generate_messages_py.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-.PHONY : a_tb/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_py: a_tb/CMakeFiles/std_msgs_generate_messages_py.dir/rule
-
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/std_msgs_generate_messages_py.dir/build.make a_tb/CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/a_tb_geneus.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_geneus.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_geneus.dir/rule
-
-# Convenience name for target.
-a_tb_geneus: a_tb/CMakeFiles/a_tb_geneus.dir/rule
-
-.PHONY : a_tb_geneus
-
-# fast build rule for target.
-a_tb_geneus/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_geneus.dir/build.make a_tb/CMakeFiles/a_tb_geneus.dir/build
-.PHONY : a_tb_geneus/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_nodejs: a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-geometry_msgs_generate_messages_nodejs/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
-.PHONY : geometry_msgs_generate_messages_nodejs/fast
+geometry_msgs_generate_messages_py/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 a_tb/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule:
@@ -541,6 +331,51 @@ actionlib_msgs_generate_messages_nodejs/fast:
 .PHONY : actionlib_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_nodejs: a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+geometry_msgs_generate_messages_nodejs/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+.PHONY : geometry_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_lisp: a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_lisp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+.PHONY : geometry_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_py: a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+
+.PHONY : nav_msgs_generate_messages_py
+
+# fast build rule for target.
+nav_msgs_generate_messages_py/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_py.dir/build
+.PHONY : nav_msgs_generate_messages_py/fast
+
+# Convenience name for target.
 a_tb/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
 	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 .PHONY : a_tb/CMakeFiles/roscpp_generate_messages_eus.dir/rule
@@ -556,34 +391,19 @@ roscpp_generate_messages_eus/fast:
 .PHONY : roscpp_generate_messages_eus/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+a_tb/CMakeFiles/a_tb_gencpp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_gencpp.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_gencpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_nodejs: a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+a_tb_gencpp: a_tb/CMakeFiles/a_tb_gencpp.dir/rule
 
-.PHONY : roscpp_generate_messages_nodejs
+.PHONY : a_tb_gencpp
 
 # fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+a_tb_gencpp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_gencpp.dir/build.make a_tb/CMakeFiles/a_tb_gencpp.dir/build
+.PHONY : a_tb_gencpp/fast
 
 # Convenience name for target.
 a_tb/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
@@ -601,6 +421,171 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_nodejs: a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+
+.PHONY : roscpp_generate_messages_nodejs
+
+# fast build rule for target.
+roscpp_generate_messages_nodejs/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/a_tb_geneus.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_geneus.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_geneus.dir/rule
+
+# Convenience name for target.
+a_tb_geneus: a_tb/CMakeFiles/a_tb_geneus.dir/rule
+
+.PHONY : a_tb_geneus
+
+# fast build rule for target.
+a_tb_geneus/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_geneus.dir/build.make a_tb/CMakeFiles/a_tb_geneus.dir/build
+.PHONY : a_tb_geneus/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_eus: a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+
+.PHONY : nav_msgs_generate_messages_eus
+
+# fast build rule for target.
+nav_msgs_generate_messages_eus/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+.PHONY : nav_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule
+
+# Convenience name for target.
+a_tb_generate_messages_py: a_tb/CMakeFiles/a_tb_generate_messages_py.dir/rule
+
+.PHONY : a_tb_generate_messages_py
+
+# fast build rule for target.
+a_tb_generate_messages_py/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_py.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_py.dir/build
+.PHONY : a_tb_generate_messages_py/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_cpp: a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+.PHONY : a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_eus: a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_eus
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_eus/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+.PHONY : actionlib_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/a_tb_gennodejs.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_gennodejs.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_gennodejs.dir/rule
+
+# Convenience name for target.
+a_tb_gennodejs: a_tb/CMakeFiles/a_tb_gennodejs.dir/rule
+
+.PHONY : a_tb_gennodejs
+
+# fast build rule for target.
+a_tb_gennodejs/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_gennodejs.dir/build.make a_tb/CMakeFiles/a_tb_gennodejs.dir/build
+.PHONY : a_tb_gennodejs/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_nodejs: a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : nav_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+nav_msgs_generate_messages_nodejs/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+.PHONY : nav_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+geometry_msgs_generate_messages_eus: a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+
+.PHONY : geometry_msgs_generate_messages_eus
+
+# fast build rule for target.
+geometry_msgs_generate_messages_eus/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+.PHONY : geometry_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_cpp: a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+# Convenience name for target.
 a_tb/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule:
 	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
 .PHONY : a_tb/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
@@ -616,19 +601,109 @@ actionlib_msgs_generate_messages_py/fast:
 .PHONY : actionlib_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/a_tb_gencpp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_gencpp.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_gencpp.dir/rule
+a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-a_tb_gencpp: a_tb/CMakeFiles/a_tb_gencpp.dir/rule
+nav_msgs_generate_messages_lisp: a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : a_tb_gencpp
+.PHONY : nav_msgs_generate_messages_lisp
 
 # fast build rule for target.
-a_tb_gencpp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_gencpp.dir/build.make a_tb/CMakeFiles/a_tb_gencpp.dir/build
-.PHONY : a_tb_gencpp/fast
+nav_msgs_generate_messages_lisp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+.PHONY : nav_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_nodejs: a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_nodejs/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+nav_msgs_generate_messages_cpp: a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : nav_msgs_generate_messages_cpp
+
+# fast build rule for target.
+nav_msgs_generate_messages_cpp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+.PHONY : nav_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+.PHONY : a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_cpp: a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_cpp
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_cpp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+.PHONY : actionlib_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule
+.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+a_tb_generate_messages_cpp: a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/rule
+
+.PHONY : a_tb_generate_messages_cpp
+
+# fast build rule for target.
+a_tb_generate_messages_cpp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_cpp.dir/build
+.PHONY : a_tb_generate_messages_cpp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_lisp: a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+
+.PHONY : roscpp_generate_messages_lisp
+
+# fast build rule for target.
+roscpp_generate_messages_lisp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
+
+# Convenience name for target.
+a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+.PHONY : a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+actionlib_msgs_generate_messages_lisp: a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : actionlib_msgs_generate_messages_lisp
+
+# fast build rule for target.
+actionlib_msgs_generate_messages_lisp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+.PHONY : actionlib_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
 a_tb/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -661,184 +736,19 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-a_tb/CMakeFiles/a_tb_generate_messages.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_generate_messages.dir/rule
+a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-a_tb_generate_messages: a_tb/CMakeFiles/a_tb_generate_messages.dir/rule
+rosgraph_msgs_generate_messages_cpp: a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
-.PHONY : a_tb_generate_messages
+.PHONY : rosgraph_msgs_generate_messages_cpp
 
 # fast build rule for target.
-a_tb_generate_messages/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages.dir/build
-.PHONY : a_tb_generate_messages/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-a_tb_generate_messages_eus: a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/rule
-
-.PHONY : a_tb_generate_messages_eus
-
-# fast build rule for target.
-a_tb_generate_messages_eus/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_eus.dir/build
-.PHONY : a_tb_generate_messages_eus/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/a_tb_gennodejs.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_gennodejs.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_gennodejs.dir/rule
-
-# Convenience name for target.
-a_tb_gennodejs: a_tb/CMakeFiles/a_tb_gennodejs.dir/rule
-
-.PHONY : a_tb_gennodejs
-
-# fast build rule for target.
-a_tb_gennodejs/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_gennodejs.dir/build.make a_tb/CMakeFiles/a_tb_gennodejs.dir/build
-.PHONY : a_tb_gennodejs/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-a_tb_generate_messages_lisp: a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/rule
-
-.PHONY : a_tb_generate_messages_lisp
-
-# fast build rule for target.
-a_tb_generate_messages_lisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_lisp.dir/build
-.PHONY : a_tb_generate_messages_lisp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/a_tb_genlisp.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_genlisp.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_genlisp.dir/rule
-
-# Convenience name for target.
-a_tb_genlisp: a_tb/CMakeFiles/a_tb_genlisp.dir/rule
-
-.PHONY : a_tb_genlisp
-
-# fast build rule for target.
-a_tb_genlisp/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_genlisp.dir/build.make a_tb/CMakeFiles/a_tb_genlisp.dir/build
-.PHONY : a_tb_genlisp/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-.PHONY : a_tb/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_msgs_generate_messages_nodejs: a_tb/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-.PHONY : a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-geometry_msgs_generate_messages_py: a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
-
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make a_tb/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/go.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/go.dir/rule
-.PHONY : a_tb/CMakeFiles/go.dir/rule
-
-# Convenience name for target.
-go: a_tb/CMakeFiles/go.dir/rule
-
-.PHONY : go
-
-# fast build rule for target.
-go/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/go.dir/build.make a_tb/CMakeFiles/go.dir/build
-.PHONY : go/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule
-.PHONY : a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-a_tb_generate_messages_nodejs: a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/rule
-
-.PHONY : a_tb_generate_messages_nodejs
-
-# fast build rule for target.
-a_tb_generate_messages_nodejs/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/build.make a_tb/CMakeFiles/a_tb_generate_messages_nodejs.dir/build
-.PHONY : a_tb_generate_messages_nodejs/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/goToPoint.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/goToPoint.dir/rule
-.PHONY : a_tb/CMakeFiles/goToPoint.dir/rule
-
-# Convenience name for target.
-goToPoint: a_tb/CMakeFiles/goToPoint.dir/rule
-
-.PHONY : goToPoint
-
-# fast build rule for target.
-goToPoint/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/goToPoint.dir/build.make a_tb/CMakeFiles/goToPoint.dir/build
-.PHONY : goToPoint/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-.PHONY : a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nav_msgs_generate_messages_eus: a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
-
-.PHONY : nav_msgs_generate_messages_eus
-
-# fast build rule for target.
-nav_msgs_generate_messages_eus/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make a_tb/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
-.PHONY : nav_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-a_tb/CMakeFiles/initialpose_pub.dir/rule:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 a_tb/CMakeFiles/initialpose_pub.dir/rule
-.PHONY : a_tb/CMakeFiles/initialpose_pub.dir/rule
-
-# Convenience name for target.
-initialpose_pub: a_tb/CMakeFiles/initialpose_pub.dir/rule
-
-.PHONY : initialpose_pub
-
-# fast build rule for target.
-initialpose_pub/fast:
-	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/initialpose_pub.dir/build.make a_tb/CMakeFiles/initialpose_pub.dir/build
-.PHONY : initialpose_pub/fast
+rosgraph_msgs_generate_messages_cpp/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make a_tb/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
 
 src/go.o: src/go.cpp.o
 
@@ -927,58 +837,52 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... install/local"
-	@echo "... _catkin_empty_exported_target"
-	@echo "... nav_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
-	@echo "... actionlib_msgs_generate_messages_lisp"
-	@echo "... install"
-	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... nav_msgs_generate_messages_lisp"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_eus"
-	@echo "... nav_msgs_generate_messages_nodejs"
-	@echo "... a_tb_genpy"
-	@echo "... actionlib_msgs_generate_messages_eus"
-	@echo "... actionlib_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... test"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... a_tb_generate_messages_py"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... a_tb_generate_messages_cpp"
-	@echo "... nav_msgs_generate_messages_py"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... a_tb_geneus"
-	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... initialpose_pub"
+	@echo "... install/strip"
+	@echo "... goToPoint"
+	@echo "... a_tb_genpy"
+	@echo "... a_tb_generate_messages_nodejs"
+	@echo "... go"
+	@echo "... a_tb_genlisp"
+	@echo "... a_tb_generate_messages_lisp"
+	@echo "... a_tb_generate_messages_eus"
+	@echo "... a_tb_generate_messages"
+	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_nodejs"
-	@echo "... list_install_components"
+	@echo "... geometry_msgs_generate_messages_nodejs"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... install/local"
+	@echo "... nav_msgs_generate_messages_py"
 	@echo "... roscpp_generate_messages_eus"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_py"
-	@echo "... actionlib_msgs_generate_messages_py"
 	@echo "... a_tb_gencpp"
+	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... a_tb_geneus"
+	@echo "... nav_msgs_generate_messages_eus"
+	@echo "... a_tb_generate_messages_py"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... actionlib_msgs_generate_messages_eus"
+	@echo "... a_tb_gennodejs"
+	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... geometry_msgs_generate_messages_eus"
+	@echo "... roscpp_generate_messages_cpp"
+	@echo "... actionlib_msgs_generate_messages_py"
+	@echo "... install"
+	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... nav_msgs_generate_messages_cpp"
+	@echo "... actionlib_msgs_generate_messages_cpp"
+	@echo "... a_tb_generate_messages_cpp"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... actionlib_msgs_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... a_tb_generate_messages"
-	@echo "... a_tb_generate_messages_eus"
-	@echo "... a_tb_gennodejs"
-	@echo "... a_tb_generate_messages_lisp"
-	@echo "... a_tb_genlisp"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... geometry_msgs_generate_messages_py"
-	@echo "... go"
-	@echo "... a_tb_generate_messages_nodejs"
-	@echo "... goToPoint"
-	@echo "... nav_msgs_generate_messages_eus"
-	@echo "... install/strip"
-	@echo "... initialpose_pub"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... src/go.o"
 	@echo "... src/go.i"
 	@echo "... src/go.s"

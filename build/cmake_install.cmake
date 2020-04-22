@@ -126,7 +126,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kreta/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/kreta/catkin_ws/build/a_tb/cmake_install.cmake")
+  include("/home/kreta/catkin_ws/build/my_turtle_pkg/cmake_install.cmake")
 
 endif()
 

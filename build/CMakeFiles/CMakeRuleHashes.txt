@@ -77,4 +77,3 @@ e5686d8acd16fd6d832dd9948384fe51 /home/kreta/catkin_ws/devel/share/roseus/ros/tu
 9b10ea28a00c975663ce8c94e2de54b4 /home/kreta/catkin_ws/devel/share/roseus/ros/turtlebot3_msgs/msg/VersionInfo.l
 b792d80809c8023d26d9c89676f1e878 /home/kreta/catkin_ws/devel/share/roseus/ros/turtlesim_cleaner/manifest.l
 8159176bdd6b37d825a07e5c49eab663 CMakeFiles/clean_test_results
-e532ced2f38c3b65b5785a0226642190 a_tb/CMakeFiles/a_tb_generate_messages_eus
