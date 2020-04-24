@@ -32,7 +32,7 @@ void desCallback(const turtlesim::Pose::ConstPtr &tar_message){
 }
 
 void follow(){
-    ros::Rate loop_rate(30);
+    ros::Rate loop_rate(100);
 
     double target_theta = atan2((turtle1_pose.y - follower_pose.y),
                                 (turtle1_pose.x - follower_pose.x));
@@ -40,13 +40,15 @@ void follow(){
     if (target_theta < 0) target_theta += 2 * M_PI;
 
     if (abs(target_theta - follower_pose.theta) < 0.1){
-        vel_msg.linear.x = 3;
+        vel_msg.linear.x = 5;
         vel_msg.angular.z = 0;
+        velocity_publisher.publish(vel_msg);
+
     } else {
         vel_msg.linear.x = 0;
-        vel_msg.angular.z = 5;
+        vel_msg.angular.z = 3;
+        velocity_publisher.publish(vel_msg);
     }
-    velocity_publisher.publish(vel_msg);
     loop_rate.sleep();
 }
 
@@ -56,8 +58,8 @@ void caught() {
     vel_msg.angular.z = 0;
     velocity_publisher.publish(vel_msg);
 
-    std::cout << "\n=====================" << std::endl;
-    std::cout << "\n Caught You \n";
+    // std::cout << "\n=====================" << std::endl;
+    // std::cout << "\n Caught You \n";
 
 }
 

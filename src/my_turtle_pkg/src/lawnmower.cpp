@@ -30,33 +30,6 @@ void poseCallback(const turtlesim::Pose::ConstPtr &pose_message)
     turtlesim_pose_y = pose_message->y;
     turtlesim_pose_theta = pose_message->theta;
 }
-void desCallback(const turtlesim::Pose::ConstPtr &tar_message)
-{
-    target_pose_x = tar_message->x;
-    target_pose_y = tar_message->y;
-}
-void reachAbhiyaan(){
-
-	ros::Rate loop_rate(30);
-	loop_rate.sleep();
-
-	double target_theta = atan((target_pose_y - turtlesim_pose_y)/(target_pose_x - turtlesim_pose_x));
-	if(target_theta < 0) target_theta += 2*PI;
-	if (abs(target_theta - turtlesim_pose_theta) < 0.1){
-        vel_msg.linear.x = 10;
-        vel_msg.angular.z = 0;
-    } else {
-        vel_msg.linear.x = 0;
-        vel_msg.angular.z = 5;
-    }
-    velocity_publisher.publish(vel_msg);
-}
-
-void finishHunt(){
-    vel_msg.linear.x = 0;
-    vel_msg.angular.z = 0;
-    velocity_publisher.publish(vel_msg);
-}
 
 int main(int argc, char **argv)
 {
@@ -71,14 +44,10 @@ int main(int argc, char **argv)
     velocity_publisher = n.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 1000);
     pose_subscriber = n.subscribe("/turtle1/pose", 10, poseCallback);
     loop_rate.sleep();
-
-    destination_sub = n.subscribe("/abhiyaan/pose" , 10 , desCallback);
     
     while(ros::ok()){
         loop_rate.sleep();
     	distance = getDistance(turtlesim_pose_x, turtlesim_pose_y, target_pose_x, target_pose_y);
-    	if(distance < 2) finishHunt();
-    	else reachAbhiyaan();
         cout << turtlesim_pose_x;
     }
 
