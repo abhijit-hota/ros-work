@@ -15,8 +15,6 @@ turtlesim/Pose.h
 -
 iostream
 -
-math.h
--
 
 /opt/ros/kinetic/include/geometry_msgs/Twist.h
 string
