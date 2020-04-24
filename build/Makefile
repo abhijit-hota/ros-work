@@ -283,6 +283,19 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
+# Target rules for targets named spiral
+
+# Build rule for target.
+spiral: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 spiral
+.PHONY : spiral
+
+# fast build rule for target.
+spiral/fast:
+	$(MAKE) -f my_turtle_pkg/CMakeFiles/spiral.dir/build.make my_turtle_pkg/CMakeFiles/spiral.dir/build
+.PHONY : spiral/fast
+
+#=============================================================================
 # Target rules for targets named lawnmower
 
 # Build rule for target.
@@ -1084,6 +1097,7 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... spiral"
 	@echo "... lawnmower"
 	@echo "... follow"
 	@echo "... turtle_tf_listener"

@@ -166,6 +166,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+my_turtle_pkg/CMakeFiles/spiral.dir/rule:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_turtle_pkg/CMakeFiles/spiral.dir/rule
+.PHONY : my_turtle_pkg/CMakeFiles/spiral.dir/rule
+
+# Convenience name for target.
+spiral: my_turtle_pkg/CMakeFiles/spiral.dir/rule
+
+.PHONY : spiral
+
+# fast build rule for target.
+spiral/fast:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f my_turtle_pkg/CMakeFiles/spiral.dir/build.make my_turtle_pkg/CMakeFiles/spiral.dir/build
+.PHONY : spiral/fast
+
+# Convenience name for target.
 my_turtle_pkg/CMakeFiles/lawnmower.dir/rule:
 	cd /home/kreta/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 my_turtle_pkg/CMakeFiles/lawnmower.dir/rule
 .PHONY : my_turtle_pkg/CMakeFiles/lawnmower.dir/rule
@@ -1146,6 +1161,33 @@ src/move_to_abhiyaan.cpp.s:
 	cd /home/kreta/catkin_ws/build && $(MAKE) -f my_turtle_pkg/CMakeFiles/move_to_abhiyaan.dir/build.make my_turtle_pkg/CMakeFiles/move_to_abhiyaan.dir/src/move_to_abhiyaan.cpp.s
 .PHONY : src/move_to_abhiyaan.cpp.s
 
+src/spiral.o: src/spiral.cpp.o
+
+.PHONY : src/spiral.o
+
+# target to build an object file
+src/spiral.cpp.o:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f my_turtle_pkg/CMakeFiles/spiral.dir/build.make my_turtle_pkg/CMakeFiles/spiral.dir/src/spiral.cpp.o
+.PHONY : src/spiral.cpp.o
+
+src/spiral.i: src/spiral.cpp.i
+
+.PHONY : src/spiral.i
+
+# target to preprocess a source file
+src/spiral.cpp.i:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f my_turtle_pkg/CMakeFiles/spiral.dir/build.make my_turtle_pkg/CMakeFiles/spiral.dir/src/spiral.cpp.i
+.PHONY : src/spiral.cpp.i
+
+src/spiral.s: src/spiral.cpp.s
+
+.PHONY : src/spiral.s
+
+# target to generate assembly for a file
+src/spiral.cpp.s:
+	cd /home/kreta/catkin_ws/build && $(MAKE) -f my_turtle_pkg/CMakeFiles/spiral.dir/build.make my_turtle_pkg/CMakeFiles/spiral.dir/src/spiral.cpp.s
+.PHONY : src/spiral.cpp.s
+
 src/turtle_tf_broadcaster.o: src/turtle_tf_broadcaster.cpp.o
 
 .PHONY : src/turtle_tf_broadcaster.o
@@ -1209,6 +1251,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... install/local"
 	@echo "... install/strip"
+	@echo "... spiral"
 	@echo "... lawnmower"
 	@echo "... follow"
 	@echo "... turtle_tf_listener"
@@ -1282,6 +1325,9 @@ help:
 	@echo "... src/move_to_abhiyaan.o"
 	@echo "... src/move_to_abhiyaan.i"
 	@echo "... src/move_to_abhiyaan.s"
+	@echo "... src/spiral.o"
+	@echo "... src/spiral.i"
+	@echo "... src/spiral.s"
 	@echo "... src/turtle_tf_broadcaster.o"
 	@echo "... src/turtle_tf_broadcaster.i"
 	@echo "... src/turtle_tf_broadcaster.s"

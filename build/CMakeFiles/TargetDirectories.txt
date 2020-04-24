@@ -31,6 +31,7 @@
 /home/kreta/catkin_ws/build/my_turtle_pkg/CMakeFiles/edit_cache.dir
 /home/kreta/catkin_ws/build/my_turtle_pkg/CMakeFiles/install/local.dir
 /home/kreta/catkin_ws/build/my_turtle_pkg/CMakeFiles/install/strip.dir
+/home/kreta/catkin_ws/build/my_turtle_pkg/CMakeFiles/spiral.dir
 /home/kreta/catkin_ws/build/my_turtle_pkg/CMakeFiles/lawnmower.dir
 /home/kreta/catkin_ws/build/my_turtle_pkg/CMakeFiles/follow.dir
 /home/kreta/catkin_ws/build/my_turtle_pkg/CMakeFiles/turtle_tf_listener.dir

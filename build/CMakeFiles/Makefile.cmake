@@ -239,6 +239,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "gtest/CMakeFiles/gmock_main.dir/DependInfo.cmake"
   "gtest/gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "gtest/gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
+  "my_turtle_pkg/CMakeFiles/spiral.dir/DependInfo.cmake"
   "my_turtle_pkg/CMakeFiles/lawnmower.dir/DependInfo.cmake"
   "my_turtle_pkg/CMakeFiles/follow.dir/DependInfo.cmake"
   "my_turtle_pkg/CMakeFiles/turtle_tf_listener.dir/DependInfo.cmake"

@@ -28,3 +28,6 @@ target_link_libraries(follow ${catkin_LIBRARIES})
 
 add_executable(lawnmower src/lawnmower.cpp)
 target_link_libraries(lawnmower ${catkin_LIBRARIES})
+
+add_executable(spiral src/spiral.cpp)
+target_link_libraries(spiral ${catkin_LIBRARIES})

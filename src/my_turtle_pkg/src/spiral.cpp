@@ -4,16 +4,19 @@
 #include <iostream>
 #define PI 3.14159265358979323846
 
-
 using namespace std;
 
 ros::Publisher velocity_publisher;
 ros::Subscriber pose_subscriber;
+ros::Publisher pose_publisher;
 
 turtlesim::Pose turtlesim_pose;
 geometry_msgs::Twist vel_msg;
 
-double radToDeg(double radian){
+double init_x;
+
+double radToDeg(double radian)
+{
     return (radian * (180 / PI));
 }
 
@@ -23,32 +26,15 @@ void poseCallback(const turtlesim::Pose::ConstPtr &pose_message)
     turtlesim_pose.y = pose_message->y;
     turtlesim_pose.theta = pose_message->theta;
 }
-void mow()
+void spiral()
 {
-    bool flag = (turtlesim_pose.x == 0) ? false : true;
-
-    if (turtlesim_pose.x >= 10)
-    {
-        if (turtlesim_pose.theta <= PI)
-        {
-            vel_msg.linear.x = 3;
-            vel_msg.angular.z = 3;
-        }
-    }
-    else if (turtlesim_pose.x < 1)
-    {
-        if (turtlesim_pose.theta > 0)
-        {
-            vel_msg.linear.x = 3;
-            vel_msg.angular.z = -3;
-        }
-    }
+    if (turtlesim_pose.theta < 0.1 && turtlesim_pose.theta > -0.1)
+        vel_msg.linear.x *= 2;
     else
     {
-        vel_msg.linear.x = 3;
-        vel_msg.angular.z = 0;
+        vel_msg.angular.z = 5;
+        vel_msg.linear.x *= 1;
     }
-
     velocity_publisher.publish(vel_msg);
 }
 int main(int argc, char **argv)
@@ -61,11 +47,15 @@ int main(int argc, char **argv)
 
     velocity_publisher = n.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 1000);
     pose_subscriber = n.subscribe("/turtle1/pose", 10, poseCallback);
+    pose_publisher = n.advertise<turtlesim::Pose>("/turtl1/pose", 100);
+    
+    turtlesim_pose.theta = 1;
+    pose_publisher.publish(turtlesim_pose);
 
-    while (ros::ok())
-    {
+    while(ros::ok())
+{
+        spiral();
         ros::spinOnce();
-        mow();
     }
 
     return 0;
