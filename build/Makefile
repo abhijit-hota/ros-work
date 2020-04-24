@@ -283,6 +283,19 @@ gtest_main/fast:
 .PHONY : gtest_main/fast
 
 #=============================================================================
+# Target rules for targets named lawnmower
+
+# Build rule for target.
+lawnmower: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 lawnmower
+.PHONY : lawnmower
+
+# fast build rule for target.
+lawnmower/fast:
+	$(MAKE) -f my_turtle_pkg/CMakeFiles/lawnmower.dir/build.make my_turtle_pkg/CMakeFiles/lawnmower.dir/build
+.PHONY : lawnmower/fast
+
+#=============================================================================
 # Target rules for targets named follow
 
 # Build rule for target.
@@ -1071,6 +1084,7 @@ help:
 	@echo "... gmock_main"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... lawnmower"
 	@echo "... follow"
 	@echo "... turtle_tf_listener"
 	@echo "... turtle_tf_broadcaster"

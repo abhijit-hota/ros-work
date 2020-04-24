@@ -10,10 +10,7 @@ ros::Publisher velocity_publisher;
 ros::Subscriber pose_subscriber;
 ros::Subscriber destination_sub;
 
-double turtlesim_pose_x, turtlesim_pose_y, turtlesim_pose_theta;
-double target_pose_x, target_pose_y;
-
-ros::Rate loop_rate(10);
+turtlesim::Pose turtlesim_pose;
 
 const double PI = 3.14159265359;
 
@@ -26,17 +23,28 @@ double getDistance(double x1, double y1, double x2, double y2)
 
 void poseCallback(const turtlesim::Pose::ConstPtr &pose_message)
 {
-    turtlesim_pose_x = pose_message->x;
-    turtlesim_pose_y = pose_message->y;
-    turtlesim_pose_theta = pose_message->theta;
+    turtlesim_pose.x = pose_message->x;
+    turtlesim_pose.y = pose_message->y;
+    turtlesim_pose.theta = pose_message->theta;
 }
-
+void mow(){
+    ROS_INFO("%lf", 11 - turtlesim_pose.x);
+    if(11 - turtlesim_pose.x > 1 ){
+        vel_msg.linear.x = 5;
+        vel_msg.angular.z = 0;
+    } else {
+        vel_msg.linear.x = 0;
+        vel_msg.angular.z = 5;
+    }
+    velocity_publisher.publish(vel_msg);
+}
 int main(int argc, char **argv)
 {
 
-    ros::init(argc, argv, "turtlesim_cleaner");
+    ros::init(argc, argv, "lawnmower");
     ros::NodeHandle n;
 
+    ros::Rate loop_rate(30);
     double speed, angular_speed;
     double distance, angle;
     bool isForward, clockwise;
@@ -47,8 +55,7 @@ int main(int argc, char **argv)
     
     while(ros::ok()){
         loop_rate.sleep();
-    	distance = getDistance(turtlesim_pose_x, turtlesim_pose_y, target_pose_x, target_pose_y);
-        cout << turtlesim_pose_x;
+    	mow();
     }
 
     ros::spin();
