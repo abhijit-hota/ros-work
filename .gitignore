@@ -2,10 +2,10 @@
 .catkin_tools/
 .catkin_workspace
 
-turtlebot3/
-turtlebot3_msgs/
-turtlebot3_simulations/
-ros_service_examples/
+src/turtlebot3/
+src/turtlebot3_msgs/
+src/turtlebot3_simulations/
+src/ros_service_examples/
 
 # Executables
 *.exe
