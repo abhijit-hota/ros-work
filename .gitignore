@@ -6,6 +6,7 @@ src/turtlebot3/
 src/turtlebot3_msgs/
 src/turtlebot3_simulations/
 src/ros_service_examples/
+src/ros_tutorials
 
 # Executables
 *.exe
