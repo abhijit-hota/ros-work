@@ -4,27 +4,35 @@
 
 std::string turtle_name;
 
-
-
-void poseCallback(const turtlesim::PoseConstPtr& msg){
+void poseCallback(const turtlesim::PoseConstPtr &msg)
+{
+  //creating a transform broadcaster object
   static tf::TransformBroadcaster br;
+
+  //create a transform object, pass the 2D info from turtlseim pose to a 3D transform
   tf::Transform transform;
-  transform.setOrigin( tf::Vector3(msg->x, msg->y, 0.0) );
+  transform.setOrigin(tf::Vector3(msg->x, msg->y, 0.0));
   tf::Quaternion q;
   q.setRPY(0, 0, msg->theta);
   transform.setRotation(q);
+
+
   br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", turtle_name));
 }
 
-int main(int argc, char** argv){
+int main(int argc, char **argv)
+{
   ros::init(argc, argv, "my_tf_broadcaster");
-  if (argc != 2){ROS_ERROR("need turtle name as argument"); return -1;};
+  if (argc != 2)
+  {
+    ROS_ERROR("need turtle name as argument");
+    return -1;
+  }
   turtle_name = argv[1];
 
   ros::NodeHandle node;
-  ros::Subscriber sub = node.subscribe(turtle_name+"/pose", 10, &poseCallback);
+  ros::Subscriber sub = node.subscribe(turtle_name + "/pose", 10, &poseCallback);
 
   ros::spin();
   return 0;
-};
-
+}
